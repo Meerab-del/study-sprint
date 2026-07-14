@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* data-theme attribute is set on the App wrapper div, so no ":root" here */
+[data-theme="light"] {
+  --bg: #FAFAF7;
+  --surface: #FFFFFF;
+  --surface-2: #F0EEE6;
+  --ink: #1B1E27;
+  --ink-soft: #5B5F6B;
+  --line: #E2DFD4;
+  --amber: #C97A1D;
+  --amber-soft: #F4E3C6;
+  --teal: #2F7B6E;
+  --teal-soft: #DCEEEA;
+  --danger: #B0453C;
+  --danger-soft: #F4DEDB;
+  --board: #1B1E27;
+  --board-digit: #F4E3C6;
+  --shadow: 0 1px 2px rgba(27,30,39,0.06), 0 8px 24px rgba(27,30,39,0.06);
+  /* darker versions used only for small text sitting on a "soft" tinted
+     background — the base amber/teal/danger are too light for AA contrast
+     when used as text there, so text gets its own darker shade */
+  --amber-text: #8A5710;
+  --teal-text: #1F5147;
+  --danger-text: #7A2E26;
+}
+
+[data-theme="dark"] {
+  --bg: #14171F;
+  --surface: #1B1F2A;
+  --surface-2: #232838;
+  --ink: #F1EFE6;
+  --ink-soft: #9A9DAC;
+  --line: #2E3342;
+  --amber: #E8A23D;
+  --amber-soft: #3A2E17;
+  --teal: #4FB3A2;
+  --teal-soft: #163330;
+  --danger: #E37065;
+  --danger-soft: #3A1E1B;
+  --board: #0D0F15;
+  --board-digit: #E8A23D;
+  --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.35);
+  /* dark theme's base colors already have enough contrast on their soft
+     backgrounds, so the "text" token just reuses them */
+  --amber-text: #E8A23D;
+  --teal-text: #4FB3A2;
+  --danger-text: #E37065;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
