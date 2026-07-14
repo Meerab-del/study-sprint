@@ -77,15 +77,30 @@ directly from this folder.
 - Respects `prefers-reduced-motion` — transitions and the spinner collapse
   to near-instant for users who've asked for reduced motion.
 
+## Live deployment
+
+**https://study-sprint-tau.vercel.app**
+
+Repo: https://github.com/Meerab-del/study-sprint
+
 ## Lighthouse accessibility report
 
-Run after `npm run build && npm run preview`:
+**Score: 100/100** — audited directly against the deployed Vercel URL from
+Chrome DevTools (Lighthouse panel). Screenshot: `lighthouse-accessibility-report.jpeg`
+(included in this submission).
+
+To re-run it yourself:
 
 ```bash
+npm run build && npm run preview
 npx lighthouse http://localhost:4173 --only-categories=accessibility --view
 ```
 
-Add the resulting screenshot or JSON export here before submitting.
+or run it directly against the live URL:
+
+```bash
+npx lighthouse https://study-sprint-tau.vercel.app --only-categories=accessibility --view
+```
 
 ## Ambiguity calls made from the mock
 
